@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Wheather from "./components/WeatherResult";
+import Weather from "./components/WeatherResult";
 import "./App.css";
 
 function App() {
@@ -25,7 +25,16 @@ function App() {
         />
         <button onClick={() => getData(input)}>Search</button>
       </div>
-      <Wheather />
+      {weatherData.map((item) => (
+        <Weather
+          key={item.date}
+          date={item.date}
+          mintemp={item.day.mintemp_c}
+          maxtemp={item.day.maxtemp_c}
+          condition={item.day.condition.text}
+          icon={item.day.condition.icon}
+        />
+      ))}
     </div>
   );
 }

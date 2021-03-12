@@ -1,18 +1,19 @@
 import React from "react";
 import "./weatherResult.css";
 
-function WeatherResult() {
-  
+function WeatherResult({ date, mintemp, maxtemp, condition, icon }) {
   return (
     <div>
       <div className="result">
-        <h2>Date</h2>
+        <h2>{date}</h2>
         <ul>
           <li>
-            <img src="#" alt="" />
+            <img src={icon} alt="" />
           </li>
-          <li>Weather Status</li>
-          <li>min C / maxtemp C</li>
+          <li>{condition}</li>
+          <li>
+            {mintemp} C / {maxtemp} C
+          </li>
         </ul>
       </div>
     </div>
